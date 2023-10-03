@@ -5,7 +5,7 @@ import { productController } from "../service/product.service.js"
 import { userController } from "../service/user.service.js"
 import mailService from "../config/mailing.config.js"
 
-
+dsadsad
 // SECTION - renderizar los products
 
 export const products = async (req, res) => {
