@@ -1,0 +1,209 @@
+#productCard , #product, #user{
+    background: #36393f;
+    opacity: 1;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border-color: black;
+    border:5px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+#ticket p{
+    color: black;
+}
+#ticket {
+    background-color: rgb(248, 244, 172);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#changeRoleAdmin,.changeRoleBtnAdm{
+    margin-bottom: 12px;
+}
+.deleteUsersBtn{
+    margin-top: 30px;
+}
+
+
+.greet{
+    color: black;
+    font-size: 15px;
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+#greetTitles{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+.profileTitle{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.profileImg{
+    margin-bottom: 20px;
+}
+
+#roleTxt{
+    margin-bottom: 5px;
+}
+.userCont{
+    margin-left: 20px;
+}
+
+.profileText{
+    color: black;
+}
+
+.loginTitle{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#registerTitle{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group{
+    margin-bottom: -10px;
+}
+
+#loginForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#navBar{
+    height: 60px;
+    color: black;
+}
+
+.registerText{
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#warningMsg{
+    color: red;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.inputModifyQty{
+    width: 50px;
+}
+
+.buttonEmptyCart{
+    margin-top: 25px;
+}
+
+
+.table{
+    width: 700px;
+}
+
+tbody,thead{
+    text-align: center;
+}
+
+.cartTitle{
+    font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.numPag{
+    color: black;
+    font-weight: 400;
+}
+
+#formContainer{
+    display: flex;
+    align-items: top;
+
+}
+
+#addContainer{
+    margin-right: 50px;
+}
+
+#realTimeProductsContainer{
+    margin-left: 50px;
+}
+
+#productsList , #products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+body{
+    font-family: "roboto flex";
+}
+
+.header{
+    margin-top: 20px;
+}
+
+.cartButton{
+    margin-right: 30px;
+    height: 30px;
+}
+
+.titleProducts{
+    margin-left: 30px;
+}
+
+.title{
+    margin-top: 15px;
+}
+
+h2, p{
+    font-size: 14px;
+    color: white;
+}
+
+#emptyMessage p{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.secondaryDiv, .cont{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-bottom: 5px;
+
+}
+
+.button{
+    margin-bottom: 15px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.titleRealTimeProds{
+    margin-bottom: 30px;
+}
+
+input{
+    margin:0px 0px 20px 0px
+}

@@ -1,0 +1,33 @@
+<div id="realTimeProductsContainer">
+    <div id="formContainer">
+        <div id="addContainer">
+            <h1 class="titleRealTimeProds">agregar un producto:</h1>
+
+            <div>
+                <form action="" class="form">
+                    <input type="text" placeholder="nombre" id="title">
+                    <input type="text" placeholder="descripcion" id="description">
+                    <input type="text" placeholder="precio" id="price">
+                    <input type="text" placeholder="codigo" id="code">
+                    <input type="text" placeholder="stock" id="stock">
+                    <input type="text" placeholder="thumbnail" id="thumbnail">
+                    <input type="text" placeholder="categoria" id="category">
+                    <button onclick='uploadProduct()'>agregar</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h1>eliminar un producto:</h1>
+            <input type="text" placeholder="id del producto" id="productToDeleteId">
+            <button onclick='deleteProduct()'>eliminar</button>
+        </div>
+    </div>
+
+    <h1>productos:</h1>
+
+    <div id="productsList">
+
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>

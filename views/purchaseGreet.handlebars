@@ -1,0 +1,29 @@
+
+
+<div id="greetTitles">
+  <h1>gracias por tu compra!</h1>
+  <div>
+  <h2 class="greet">tu recibo de compra:</h2>
+  <div  class=" d-flex flex-column align-items-center ">
+    <div id="ticket" class="d-flex justify-content-start flex-column">
+    <p>email: {{ticket.purchaser}}</p>
+    <p>total: {{ticket.amount}}$</p>
+    <p>fecha de compra: {{ticket.date}}</p>
+    <p>codigo de referencia: #{{ticket.code}}</p>
+    </div>
+  </div>
+</div>
+  <h2 class="greet">en caso de no haber podido completar la compra de ciertos productos te los dejaremos aqui:</h2>
+</div>
+
+
+{{#if prodsRemaining}}
+<ul>
+  {{#each prodsRemaining}}
+    <li>Producto: {{product}}, Cantidad: {{quantity}}</li>
+  {{/each}}
+</ul>
+{{else}}
+<div class="d-flex justify-content-center"><h2 class="greet">No hay productos restantes!</h2></div>
+{{/if}}
+

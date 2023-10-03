@@ -1,0 +1,35 @@
+<h1 id="registerTitle">registrarse:</h1>
+<div id="registerForm" class=" d-flex justify-content-center">
+<form method="POST" class="d-flex flex-column align-items-center" action="/api/users/">
+    <div class="form-group  d-flex flex-column align-items-center">
+        <label for="exampleInputEmail1 ">E-mail</label>
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="E-mail">
+    </div>
+    <div class="form-group d-flex flex-column align-items-center">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input name="name" class="form-control"
+            placeholder="Nombre">
+    </div>
+    <div class="form-group  d-flex flex-column align-items-center" >
+        <label for="exampleInputEmail1">Apellido</label>
+        <input name="lastName"  class="form-control"
+            placeholder="Apellido">
+    </div>
+    <div class="form-group  d-flex flex-column align-items-center">
+        <label for="exampleInputEmail1">Edad</label>
+        <input name="age" class="form-control" placeholder="Inserte aqui">
+    </div>
+    <div class="form-group  d-flex flex-column align-items-center">
+        <label for="exampleInputEmail1">Imagen de perfil</label>
+        <input name="img" class="form-control" placeholder="Inserte aqui">
+    </div>
+    <div class="form-group  d-flex flex-column align-items-center">
+        <label for="exampleInputPassword1">Contraseña</label>
+        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-success">registrar</button>
+</form>
+</div>
+
+<script src="/js/hideNavBar.js"></script>

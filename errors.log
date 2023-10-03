@@ -1,0 +1,377 @@
+fatal: test de logger: fatal
+error: test de logger: error
+fatal: undefined
+fatal: undefined
+fatal: undefined {"code":2,"name":"User login error"}
+fatal: undefined {"code":2,"name":"User login error"}
+error: error al crear el producto en endpoint /create:
+ValidationError: category: Path `category` is required., thumbnail: Path `thumbnail` is required., stock: Path `stock` is required., code: Path `code` is required., price: Path `price` is required., description: Path `description` is required., title: Path `title` is required.
+error: error al crear el producto en endpoint /create:
+ValidationError: category: Path `category` is required., thumbnail: Path `thumbnail` is required., stock: Path `stock` is required., code: Path `code` is required., price: Path `price` is required., description: Path `description` is required., title: Path `title` is required.
+error: error al intentar eliminar el producto en endpoint /delete:
+product delete error: Error al intentar borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+product delete error: solo los admins pueden borrar productos que no hayan creado ellos
+error: error al intentar eliminar el producto en endpoint /delete:
+product delete error: solo los admins pueden borrar productos que no hayan creado ellos
+error: error al intentar eliminar el producto en endpoint /delete:
+product delete error: solo los admins pueden borrar productos que no hayan creado ellos
+error: error al intentar eliminar el producto en endpoint /delete:
+product delete error: solo los admins pueden borrar productos que no hayan creado ellos
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto o no existe
+error: error al intentar eliminar el producto en endpoint /delete:
+TypeError: Cannot read properties of undefined (reading 'owner')
+error: error al intentar eliminar el producto en endpoint /delete:
+TypeError: Cannot read properties of undefined (reading 'owner')
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto o no existe
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto o no existe
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto o no existe
+error: error al intentar eliminar el producto en endpoint /delete:
+CastError: Cast to ObjectId failed for value "64" (type number) at path "_id" for model "products"
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no se puede borrar un producto o no existe
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined {"kind":"ObjectId","path":"_id","reason":{},"stringValue":"\"{ user: '64c4169a4f3fb33154bb1604', iat: 1693246280, exp: 1693246880 }\"","value":{"exp":1693246880,"iat":1693246280,"user":"64c4169a4f3fb33154bb1604"},"valueType":"Object"}
+error: undefined
+error: undefined
+error: jwt expired {"expiredAt":"2023-08-28T18:21:20.000Z","name":"TokenExpiredError"}
+error: undefined
+error: undefined
+fatal: undefined {"code":2,"name":"User login error"}
+error: el worker 15268 crasheó - 1
+error: el worker 5292 crasheó - 1
+error: el worker 1652 crasheó - 1
+error: el worker 12968 crasheó - 1
+error: el worker 13868 crasheó - 1
+error: el worker 8440 crasheó - 1
+error: el worker 9072 crasheó - 1
+error: el worker 16248 crasheó - 1
+error: el worker 9076 crasheó - 1
+error: el worker 7868 crasheó - 1
+error: el worker 16580 crasheó - 1
+error: el worker 2908 crasheó - 1
+error: el worker 10892 crasheó - 1
+error: el worker 8696 crasheó - 1
+error: el worker 6492 crasheó - 1
+error: el worker 12668 crasheó - 1
+error: el worker 12948 crasheó - 1
+error: el worker 11488 crasheó - 1
+error: el worker 13404 crasheó - 1
+error: el worker 13112 crasheó - 1
+error: el worker 16992 crasheó - 1
+error: el worker 1696 crasheó - 1
+error: el worker 392 crasheó - 1
+error: el worker 14836 crasheó - 1
+error: el worker 6004 crasheó - 1
+error: el worker 15036 crasheó - 1
+error: el worker 16848 crasheó - 1
+error: el worker 15392 crasheó - 1
+error: el worker 8884 crasheó - 1
+error: el worker 5732 crasheó - 1
+error: el worker 2668 crasheó - 1
+error: el worker 7472 crasheó - 1
+error: el worker 2504 crasheó - 1
+error: el worker 4664 crasheó - 1
+error: el worker 13128 crasheó - 1
+error: el worker 4188 crasheó - 1
+error: el worker 13340 crasheó - 1
+error: el worker 5084 crasheó - 1
+error: el worker 2452 crasheó - 1
+error: el worker 10592 crasheó - 1
+error: el worker 14060 crasheó - 1
+error: el worker 13928 crasheó - 1
+error: el worker 11492 crasheó - 1
+error: el worker 12240 crasheó - 1
+error: el worker 4668 crasheó - 1
+error: el worker 13284 crasheó - 1
+error: el worker 16732 crasheó - 1
+error: el worker 7328 crasheó - 1
+error: el worker 13576 crasheó - 1
+error: el worker 9108 crasheó - 1
+error: el worker 2588 crasheó - 1
+error: el worker 6384 crasheó - 1
+error: el worker 8732 crasheó - 1
+error: el worker 10032 crasheó - 1
+error: el worker 14504 crasheó - 1
+error: el worker 2008 crasheó - 1
+error: el worker 4004 crasheó - 1
+error: el worker 7400 crasheó - 1
+error: el worker 2392 crasheó - 1
+error: el worker 5228 crasheó - 1
+error: el worker 10304 crasheó - 1
+error: el worker 11520 crasheó - 1
+error: el worker 17296 crasheó - 1
+error: el worker 5256 crasheó - 1
+error: el worker 10288 crasheó - 1
+error: el worker 10436 crasheó - 1
+error: el worker 6252 crasheó - 1
+error: el worker 15060 crasheó - 1
+error: el worker 7488 crasheó - 1
+error: el worker 2416 crasheó - 1
+error: el worker 12028 crasheó - 1
+error: el worker 9500 crasheó - 1
+error: el worker 13252 crasheó - 1
+error: el worker 16396 crasheó - 1
+error: el worker 17284 crasheó - 1
+error: el worker 4192 crasheó - 1
+error: el worker 952 crasheó - 1
+error: el worker 11068 crasheó - 1
+error: el worker 11776 crasheó - 1
+error: el worker 15420 crasheó - 1
+error: el worker 6356 crasheó - 1
+error: el worker 8964 crasheó - 1
+error: el worker 16016 crasheó - 1
+error: el worker 852 crasheó - 1
+error: el worker 15620 crasheó - 1
+error: el worker 2124 crasheó - 1
+error: el worker 7368 crasheó - 1
+error: el worker 13596 crasheó - 1
+error: el worker 4632 crasheó - 1
+error: el worker 14100 crasheó - 1
+error: el worker 4840 crasheó - 1
+error: el worker 10712 crasheó - 1
+error: el worker 8808 crasheó - 1
+error: el worker 8684 crasheó - 1
+error: el worker 7228 crasheó - 1
+error: el worker 16992 crasheó - 1
+error: el worker 15228 crasheó - 1
+error: el worker 14824 crasheó - 1
+error: el worker 9936 crasheó - 1
+error: el worker 6004 crasheó - 1
+error: el worker 16648 crasheó - 1
+error: el worker 10524 crasheó - 1
+error: el worker 8452 crasheó - 1
+error: el worker 7376 crasheó - 1
+error: el worker 15224 crasheó - 1
+error: el worker 1224 crasheó - 1
+error: el worker 11196 crasheó - 1
+error: el worker 13004 crasheó - 1
+error: el worker 6060 crasheó - 1
+error: el worker 7924 crasheó - 1
+error: el worker 6740 crasheó - 1
+error: el worker 11572 crasheó - 1
+error: el worker 8796 crasheó - 1
+error: el worker 4468 crasheó - 1
+error: el worker 11180 crasheó - 1
+error: el worker 15668 crasheó - 1
+error: el worker 10664 crasheó - 1
+error: el worker 5104 crasheó - 1
+error: el worker 13204 crasheó - 1
+error: el worker 1572 crasheó - 1
+error: el worker 7824 crasheó - 1
+error: el worker 9672 crasheó - 1
+error: el worker 16560 crasheó - 1
+error: el worker 15272 crasheó - 1
+error: el worker 12320 crasheó - 1
+error: el worker 4948 crasheó - 1
+error: el worker 1128 crasheó - 1
+error: el worker 1400 crasheó - 1
+error: el worker 9636 crasheó - 1
+error: el worker 10592 crasheó - 1
+error: el worker 11500 crasheó - 1
+error: el worker 15072 crasheó - 1
+error: el worker 15076 crasheó - 1
+error: el worker 3688 crasheó - 1
+error: el worker 2524 crasheó - 1
+error: el worker 8616 crasheó - 1
+error: el worker 15444 crasheó - 1
+error: el worker 8072 crasheó - 1
+error: el worker 11384 crasheó - 1
+error: el worker 3128 crasheó - 1
+error: el worker 2744 crasheó - 1
+error: el worker 11144 crasheó - 1
+error: el worker 16852 crasheó - 1
+error: el worker 10452 crasheó - 1
+error: el worker 14456 crasheó - 1
+error: el worker 7976 crasheó - 1
+error: el worker 10152 crasheó - 1
+error: el worker 11528 crasheó - 1
+error: el worker 11752 crasheó - 1
+error: el worker 11072 crasheó - 1
+error: el worker 17388 crasheó - 1
+error: el worker 7408 crasheó - 1
+error: el worker 9648 crasheó - 1
+error: el worker 1764 crasheó - 1
+error: el worker 3320 crasheó - 1
+error: el worker 6636 crasheó - 1
+error: el worker 9072 crasheó - 1
+error: el worker 11772 crasheó - 1
+error: el worker 10100 crasheó - 1
+error: el worker 8008 crasheó - 1
+error: el worker 11540 crasheó - 1
+error: el worker 9260 crasheó - 1
+error: el worker 16152 crasheó - 1
+error: el worker 15268 crasheó - 1
+error: el worker 7588 crasheó - 1
+error: el worker 12652 crasheó - 1
+error: el worker 16724 crasheó - 1
+error: el worker 13588 crasheó - 1
+error: el worker 14684 crasheó - 1
+error: el worker 5112 crasheó - 1
+error: el worker 17092 crasheó - 1
+error: el worker 3744 crasheó - 1
+error: el worker 6216 crasheó - 1
+error: el worker 952 crasheó - 1
+error: el worker 4736 crasheó - 1
+error: el worker 10084 crasheó - 1
+error: el worker 9080 crasheó - 1
+error: el worker 14168 crasheó - 1
+error: el worker 4496 crasheó - 1
+error: el worker 7604 crasheó - 1
+error: el worker 7460 crasheó - 1
+error: el worker 16308 crasheó - 1
+error: el worker 6048 crasheó - 1
+error: el worker 11076 crasheó - 1
+error: el worker 17132 crasheó - 1
+error: el worker 8356 crasheó - 1
+error: el worker 6096 crasheó - 1
+error: el worker 16508 crasheó - 1
+error: el worker 708 crasheó - 1
+error: el worker 15772 crasheó - 1
+error: el worker 12248 crasheó - 1
+error: el worker 13944 crasheó - 1
+error: el worker 16596 crasheó - 1
+error: el worker 13880 crasheó - 1
+error: error al intentar crear el producto en endpoint /create:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: error al intentar crear el producto en endpoint /create:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: error al intentar crear el producto en endpoint /create:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: error al intentar crear el producto en endpoint /create:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: el worker 5524 crasheó - 1
+error: el worker 13896 crasheó - 1
+error: el worker 2132 crasheó - 1
+error: el worker 15352 crasheó - 1
+error: error al intentar crear el producto en endpoint /create:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: error al intentar crear el producto en endpoint /create?role=admin:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: error al intentar crear el producto en endpoint /create?user%5Brole%5D=admin:
+TypeError: Cannot read properties of undefined (reading 'role')
+error: el worker 10160 crasheó - 1
+error: el worker 7344 crasheó - 1
+error: error al intentar crear el producto en endpoint /create:
+MongoServerError: E11000 duplicate key error collection: test.products index: code_1 dup key: { code: 946 }
+error: error al intentar crear el producto en endpoint /create:
+MongoServerError: E11000 duplicate key error collection: test.products index: code_1 dup key: { code: 945 }
+error: error al intentar eliminar el producto en endpoint /delete:
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+error: error al intentar eliminar el producto en endpoint /delete:
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+error: error al intentar eliminar el producto en endpoint /delete:
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+error: error al intentar eliminar el producto en endpoint /delete:
+Error: no tiene los permisos necesarios o el producto no existe
+error: error en el endpoint /products de productos:
+TokenExpiredError: jwt expired
+error: error en el endpoint /products de productos:
+TokenExpiredError: jwt expired
+error: error en el endpoint /products de productos:
+TokenExpiredError: jwt expired
+error: error en el endpoint /products de productos:
+TokenExpiredError: jwt expired
+error: error al intentar eliminar el producto en endpoint /delete:
+TypeError: Cannot read properties of null (reading 'owner')
+error: error en /current: 
+TypeError: Cannot read properties of undefined (reading 'name')
+error: error en /current: 
+TypeError: Cannot read properties of undefined (reading 'name')
+error: undefined
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot read properties of undefined (reading '_id')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot read properties of undefined (reading '_id')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error al intentar cambiar el rol del usuario en /premium/64c4169a4f3fb33154bb1604:
+TypeError: Cannot set properties of null (setting 'role')
+error: error en el endpoint /products de productos:
+TypeError: Cannot read properties of undefined (reading 'toJSON')
+error: error en el endpoint /products de productos:
+TypeError: Cannot read properties of undefined (reading '_id')
+error: error en el endpoint /products de productos:
+TypeError: Cannot read properties of undefined (reading 'toJSON')
+error: error en el endpoint /products de productos:
+TypeError: Cannot read properties of undefined (reading 'toJSON')
+error: error en el endpoint /products de productos:
+TypeError: Cannot read properties of undefined (reading 'toJSON')
+error: error, no puede agregar productos que usted haya creado
+error: error, no puede agregar productos que usted haya creado
+error: error, no puede agregar productos que usted haya creado
+error: error, no puede agregar productos que usted haya creado

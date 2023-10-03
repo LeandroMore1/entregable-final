@@ -1,0 +1,53 @@
+<div id="warningMsg"></div>
+<h1 class="cartTitle d-flex justify-content-center">mi carrito</h1>
+<div id="emptyMessage" class="d-flex justify-content-center">
+  </div>
+
+  {{#if cartData}}
+<div class="cartContainer d-flex justify-content-center">
+<table class="table table-dark " id="cartItems">
+  <thead>
+    <tr>
+
+      <th scope="col">Producto</th>
+       <th scope="col">Precio c/u</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col"></th>
+      <th scope="col">Modificar cant.</th>
+    </tr>
+  </thead>
+  <tbody >
+    {{#each cartData}}
+    <tr id="{{this.product._id}}">
+      <th scope="row">{{this.product.title}}</th>
+      <td >{{this.product.price}}</td>
+      <td  class="productQty" data-product-id="{{this.product._id}}">{{this.quantity}}</td>
+      <td> <button type="button" onclick="deleteSingleProduct('{{../cid}}','{{this.product._id}}')" class="btn btn-danger btn-sm">eliminar</button></td>
+      
+        <td class="d-flex justify-content-between align-items-start">
+        <input placeholder="0" class="inputVal inputModifyQty" data-product-id="{{this.product._id}}" name="qty" type="number"> 
+        <button type="button" onclick="updateProductQty('{{../cid}}','{{this.product._id}}', '{{this.quantity}}')"  class="btn btn-light btn-sm">cambiar</button>
+        </td>
+    </tr>
+
+     {{/each}}
+  </tbody>
+</table>
+
+
+</div>
+<div id="empty" class="d-flex justify-content-center">
+<a href="#" onclick="deleteProducts('{{cid}}')"  class="btn btn-danger buttonEmptyCart">vaciar carrito</a>
+<a onclick="buy('{{cid}}')" class="btn btn-success buttonEmptyCart">comprar</a>
+</div>
+
+{{else}}
+<div class="d-flex justify-content-center">
+  <h1>Todavia no hay productos en tu carrito!</h1>
+</div>
+
+{{/if}}
+
+
+
+<script src="/js/cart.js"></script>

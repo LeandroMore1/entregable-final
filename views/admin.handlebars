@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center deleteUsersBtn">
+    <button onclick="deleteInactive()" class='btn btn-danger btn-sm'>eliminar usuarios inactivos</button>
+</div>
+{{#each users}}
+<div id="user" class="userCont">
+
+    <div class="cont title">
+        <h2>nombre: {{this.name}}</h2>
+    </div>
+
+    <div class="cont">
+        <h2>apellido: {{this.lastName}}</h2>
+    </div>
+
+    <div class="cont">
+        <h2>email: {{this.email}}</h2>
+    </div>
+
+    <div class="cont">
+        <h2>edad: {{this.age}}</h2>
+    </div>
+
+    <div class="cont d-flex flex-wrap flex-column align-items-start">
+        <h2>rol: {{this.role}}</h2>
+        <p id="roleTxt">cambiar rol:</p>
+        <select id="changeRoleAdmin">
+            <option value="premium">Premium</option>
+            <option value="user">Estándar</option>
+        </select>
+        <button type="button" id="updateRoleByAdmin" onclick="updateUserRoleAdmin('{{this._id}}')" class="btn btn-light btn-sm changeRoleBtnAdm">cambiar</button>
+    </div>
+    
+    <button onclick="deleteUser('{{this._id}}')" class="btn btn-danger btn-sm">eliminar</button>
+
+</div>
+{{/each}}
+
+<script src="/js/admin.js"></script>

@@ -1,0 +1,71 @@
+<div class="d-flex header justify-content-between align-items-center">
+<h1 class="titleProducts">
+    Productos:
+</h1>
+{{#if user}}
+<a href="/api/carts/{{products.cartId}}" class="btn btn-primary btn-sm active cartButton" role="button" aria-pressed="true">Ir al carrito</a>
+{{/if}}
+</div>
+
+<nav aria-label="Page navigation example " class="d-flex justify-content-center">
+  <ul class="pagination">
+    {{#if products.hasPrevPage}} <li class="page-item"> {{else}}<li class="page-item disabled">{{/if}}
+        <a class="page-link" href="?limit={{products.limit}}&page={{products.prevPage}}&stock={{products.stock}}&category={{products.category}}">Anterior</a></li>
+
+    <li class="page-item numPag"><a class="page-link numPag" href="?limit={{products.limit}}&page={{products.page}}&stock={{products.stock}}&category={{products.category}}">Página {{products.page}}</a></li>
+
+     {{#if products.hasNextPage}} <li class="page-item"> {{else}}<li class="page-item disabled">{{/if}}<a class="page-link" href="?limit={{products.limit}}&page={{products.nextPage}}&stock={{products.stock}}&category={{products.category}}">Siguiente</a>
+     </li>
+  </ul>
+</nav>
+
+<div id="products">
+    
+
+    {{#each products.docs}}
+    <div id="product">
+
+        <div class="cont title">
+            <h2>producto: {{this.title}}</h2>
+        </div>
+
+        <div class="cont">
+            <h2>categoria: {{this.category}}</h2>
+        </div>
+
+        <div class="cont">
+            <h2>precio: {{this.price}}</h2>
+        </div>
+
+        <div class="cont">
+            <h2>descripcion: {{this.description}}</h2>
+        </div>
+        
+        <div class="cont">
+            <h2>stock disponible: {{this.stock}}</h2>
+        </div>
+
+        <div class="cont button">
+        {{#if this.stock}}<button type="button" onclick="addProduct('{{../products.cartId}}','{{this._id}}')" class="btn btn-light btn-sm" >agregar</button>{{else}}<button type="button"class="btn btn-light btn-sm disabled" disabled>agregar</button>{{/if}}
+        </div>
+
+    </div>
+    {{/each}}
+</div>
+
+<nav aria-label="Page navigation example " class="d-flex justify-content-center">
+  <ul class="pagination">
+    {{#if products.hasPrevPage}} <li class="page-item"> {{else}}<li class="page-item disabled">{{/if}}
+        <a class="page-link" href="?limit={{products.limit}}&page={{products.prevPage}}&stock={{products.stock}}&category={{products.category}}">Anterior</a></li>
+
+    <li class="page-item numPag"><a class="page-link numPag" href="?limit={{products.limit}}&page={{products.page}}&stock={{products.stock}}&category={{products.category}}">Página {{products.page}}</a></li>
+
+     {{#if products.hasNextPage}} <li class="page-item"> {{else}}<li class="page-item disabled">{{/if}}<a class="page-link" href="?limit={{products.limit}}&page={{products.nextPage}}&stock={{products.stock}}&category={{products.category}}">Siguiente</a>
+     </li>
+  </ul>
+</nav>
+
+
+
+
+<script src="/js/cart.js"></script>
