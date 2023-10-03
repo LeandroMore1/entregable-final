@@ -51,7 +51,7 @@
 
       const row = document.getElementById(`${prodId}`)
       row.innerHTML = ""
-    
+      totalPrice()
       return await fetch(`http://localhost:4040/api/carts/${endpoint}/products/${prodId}`, options)
     }
 
@@ -78,7 +78,8 @@
       deleteButton.innerHTML = ""
       msg.innerHTML = ""
       message.innerHTML= `<p>El carrito esta vacio!</p>`
-    
+      let totalPriceDisplay = document.getElementById('totalPrice');
+    totalPriceDisplay.textContent = ""
       return await fetch(`http://localhost:4040/api/carts/${cartId}`, options)
     }
 
@@ -101,14 +102,35 @@
           body: JSON.stringify({cartId: endpoint, prodId: prodId, qty: inputVal, actVal: actVal})
         }
 
-        if( inputVal < 0 ){
+        if( inputVal <= 0 ){
           msg.innerHTML = 'debes poner al menos una cantidad valida!'
         } else{
           quantityRendered.innerHTML = inputVal;
           msg.innerHTML = ''
+          totalPrice()
           return await fetch(`http://localhost:4040/api/carts/${endpoint}/products/${prodId}`, options)
         }
 
         
       }
+function totalPrice(){
 
+  let totalPrice = 0;
+  let elements = document.querySelectorAll('td.price');
+  elements.forEach(function(el) {
+  
+    let productId = el.dataset.productId;
+    let getPrice = document.querySelector(`td.price[data-product-id="${productId}"]`);
+    let productPrice = parseInt(getPrice.textContent);
+    let getQty = document.querySelector(`td.productQty[data-product-id="${productId}"]`);
+    let productQuantity = parseInt(getQty.textContent);
+  
+    let subtotal = productPrice * productQuantity;
+  
+    totalPrice += subtotal;
+  });
+  
+  let totalPriceDisplay = document.getElementById('totalPrice');
+  totalPriceDisplay.textContent = 'Total: $' + totalPrice
+}
+totalPrice()

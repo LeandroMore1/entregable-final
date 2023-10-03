@@ -22,7 +22,7 @@ const customLevelsOptions = {
 }
 
 let logger
-let mode = config.ENVIROMENT
+let mode = config.ENVIROMENT || "development"
 
 if (mode === "development") {
     logger = winston.createLogger({

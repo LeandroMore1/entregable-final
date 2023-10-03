@@ -20,8 +20,9 @@
     {{#each cartData}}
     <tr id="{{this.product._id}}">
       <th scope="row">{{this.product.title}}</th>
-      <td >{{this.product.price}}</td>
+      <td class="price" data-product-id="{{this.product._id}}">{{this.product.price}}</td>
       <td  class="productQty" data-product-id="{{this.product._id}}">{{this.quantity}}</td>
+
       <td> <button type="button" onclick="deleteSingleProduct('{{../cid}}','{{this.product._id}}')" class="btn btn-danger btn-sm">eliminar</button></td>
       
         <td class="d-flex justify-content-between align-items-start">
@@ -36,6 +37,10 @@
 
 
 </div>
+<div id="totalContainer">
+  <p id="totalPrice"></p>
+</div>
+
 <div id="empty" class="d-flex justify-content-center">
 <a href="#" onclick="deleteProducts('{{cid}}')"  class="btn btn-danger buttonEmptyCart">vaciar carrito</a>
 <a onclick="buy('{{cid}}')" class="btn btn-success buttonEmptyCart">comprar</a>

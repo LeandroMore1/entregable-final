@@ -27,6 +27,14 @@
     margin-top: 30px;
 }
 
+#totalPrice{
+    text-align: center;
+    font-size: 20px;
+}
+
+#totalContainer p{
+    color: black;
+}
 
 .greet{
     color: black;
