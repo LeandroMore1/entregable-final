@@ -6,7 +6,7 @@ import { productController } from './service/product.service.js'
 import config from './env/config.js';
 
 
-let port = config.PORT
+let port = config.PORT || 4040
 let qty = config.WORKER_QTY
 
 if (cluster.isPrimary) {
