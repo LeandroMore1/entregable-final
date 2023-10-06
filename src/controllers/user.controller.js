@@ -88,11 +88,12 @@ export const updateUserRole = async (req, res) => {
         }else if (role === "premium") {
             user.role = "premium"
             await userController.updateUser(user._id, user)
+        return res.status(200).send('role updated successfully')
         } else if (role === "user") {
             user.role = "user"
             await userController.updateUser(user._id, user)
-        }
         return res.status(200).send('role updated successfully')
+        }
     } catch (err) {
         logger.error(`error al intentar cambiar el rol del usuario en: ${req.url}:\n${err}`)
         return res.status(500).send('internal server error')
@@ -105,6 +106,7 @@ export const updateUserRole = async (req, res) => {
 export const sendRecoveryMail = async (req, res) => {
     try {
         const email = req.body.email
+        const baseUrl = req.protocol + '://' + req.get('host');
         let user = await userController.getUserByEmail(email)
         if (!user) {
             req.logger.warning('el user no existe')
@@ -126,7 +128,7 @@ export const sendRecoveryMail = async (req, res) => {
             to: email.toString(),
             subject: 'Recuperación de contraseña',
             html: `<h1>Hola ${user.name}</h1>
-            <p>para restablecer tu contraseña deberas ingresar <a href='http://localhost:4040/restorePassword/${recovery}'>aqui</a></p>`
+            <p>para restablecer tu contraseña deberas ingresar <a href='${baseUrl}/restorePassword/${recovery}'>aqui</a></p>`
             
         }
         const mailer = new mailService()
@@ -149,7 +151,6 @@ export const restorePassword = async (req, res) => {
         const user = jwt.verify(token, config.PRIVATEKEY)
 
         const findUser = await userController.getUserById(user.user)
-        req.logger.debug(`variable findUser: ${findUser}`)
         if (comparePassword(findUser, password)) {
             req.logger.warning('no puede tener la misma contraseña!')
             return res.status(400).send('no se puede introducir la contraseña anterior')
@@ -157,8 +158,8 @@ export const restorePassword = async (req, res) => {
         findUser.password = hashPassword(password)
         await userController.updateUser(findUser._id, findUser)
         res.clearCookie("restoreToken")
-        req.logger.info("password restored successfully!")
-        res.redirect('http://localhost:4040/login')
+        req.logger.info("contraseña cambiada satisfactoriamente")
+        return res.status(200).send("password restored successfully!")
     } catch (err) {
         logger.error(`error al intentar restaurar la contraseña del usuario en: ${req.url}:\n${err}`)
         return res.status(500).send('internal server error')
@@ -193,6 +194,7 @@ export const deleteInactiveUsers = async (req,res) => {
         })
         if(users.length === 0){
             logger.info('no hay usuarios inactivos por el momento!')
+            return res.status(400).send('no inactive users found')
         } else{
             users.forEach(async element => {
                     const mailOptions = {
@@ -228,6 +230,7 @@ try{
     const deletedUser = await userController.getUserById(userId)
     if(!deletedUser){
         logger.info('usuario eliminado satisfactoriamente')
+        return res.status(200).send('user deleted')
     } else {
         throw new Error('error')
     }

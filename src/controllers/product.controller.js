@@ -40,9 +40,6 @@ export const products = async (req, res) => {
 export const createProduct = async (req, res) => {
     try {
         const token = req.cookies.token
-        if(!token){
-            res.redirect('http://localhost:4040/login')
-        }
         const user = jwt.verify(token , config.PRIVATEKEY)
         let prodToAdd = req.body
         if (user.user.role === "premium") {

@@ -1,5 +1,8 @@
 // SECTION - eliminar users inactivos
 
+
+// SECTION - eliminar users inactivos
+
 async function deleteInactive() {
 
   const options = {
@@ -8,8 +11,31 @@ async function deleteInactive() {
       'Content-Type': 'application/json'
     }
   }
-  return await fetch(`http://localhost:4040/api/users/deleteInactive`, options)
-
+  const response = await fetch(`/api/users/deleteInactive`, options)
+  if (response.status === 200){
+    Toastify({
+      text: "Usuarios inactivos eliminados",
+      className: "info",
+      style: {
+        background: "#3498db",
+      }
+    }).showToast();
+  } else if(response.status === 400){
+    Toastify({
+      text: "No hay users inactivos!",
+      className: "info",
+      style: {
+        background: "#3498db",
+      }
+    }).showToast();
+  } else if (response.status === 500){
+    Toastify({
+      text: "Error en el servidor",
+      style: {
+        background: "#f1c40f",
+      }
+    }).showToast();
+  }
 }
 
 // SECTION - actualizar el rol del usuario seleccionado
@@ -24,7 +50,23 @@ async function updateUserRoleAdmin(userId) {
     },
     body: JSON.stringify({ role: role }),
   }
-  return await fetch(`http://localhost:4040/api/users/premium/${userId}`, options)
+  const response = await fetch(`/api/users/premium/${userId}`, options)
+  if (response.status === 200){
+    Toastify({
+      text: "Rol cambiado",
+      className: "info",
+      style: {
+        background: "#3498db",
+      }
+    }).showToast();
+  } else if (response.status === 500){
+    Toastify({
+      text: "Error en el servidor",
+      style: {
+        background: "#f1c40f",
+      }
+    }).showToast();
+  }
 
 }
 
@@ -35,7 +77,25 @@ async function deleteUser(id) {
   const options = {
     method: 'DELETE',
   }
-  window.location.href = "http://localhost:4040/admin"
-  return await fetch(`http://localhost:4040/api/users/${id}`, options)
+  
+  const response = await fetch(`/api/users/${id}`, options)
+  if (response.status === 200){
+    Toastify({
+      text: "Usuario eliminado",
+      className: "info",
+      style: {
+        background: "#3498db",
+      }
+    }).showToast();
+    window.location.href = "/admin"
+  } else if (response.status === 500){
+    Toastify({
+      text: "Error en el servidor",
+      style: {
+        background: "#f1c40f",
+      }
+    }).showToast();
+  }
+
 
 }

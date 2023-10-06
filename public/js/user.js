@@ -11,7 +11,7 @@ async function updateUserRole(userId) {
             },
             body: JSON.stringify({ role: role }),
         }
-        return await fetch(`http://localhost:4040/api/users/premium/${userId}`, options)
+        return await fetch(`/api/users/premium/${userId}`, options)
 
 }
 
@@ -26,6 +26,12 @@ async function restorePassword(token) {
             },
             body: JSON.stringify({ token: token, password: newPass }),
         }
-        return await fetch(`http://localhost:4040/api/users/restorePass`, options)
+        const response = await fetch(`/api/users/restorePass`, options)
+        if(response.status === 200){
+            window.location.href = `/login`
+        } else if(response.status === 400){
+            const errorMsg = document.getElementById("errorPass")
+            errorMsg.innerHTML = "no puedes introducir la misma contraseña!"
+        }
 
 }

@@ -133,7 +133,6 @@ export const getCart = async (req, res) => {
 
 export const addProductToCart = async (req, res) => {
     try {
-        // const user = req.user
         const token = req.cookies.token
         let user
         user = jwt.verify(token, config.PRIVATEKEY)
@@ -145,13 +144,17 @@ export const addProductToCart = async (req, res) => {
         const find = cart.products.find(el => el.product.toString() === productSelected)
         if(product.owner && product.owner === user.email){
             logger.error('error, no puede agregar productos que usted haya creado')
-            return res.status(400).send('owner cannot add products created by himself to the cart')
+            return res.status(400).send('owner error')
+        } else if(user.role === "admin"){
+            logger.error('error, el admin no puede agregar productos al carro')
+            return res.status(400).send('admin error')
         }else if (find === undefined) {
             const productToAdd = { product: productSelected, quantity: 1 }
             cart.products.push(productToAdd)
             await cartController.updateCart(cid, cart)
+            return res.status(200).send("Product added to cart successfully")
         }
-        res.status(200).send("Product added to cart successfully")
+        
     } catch (err) {
         logger.warning(`error al intentar agregar un producto al cart ${req.url}:\n ${err}`)
         return res.status(500).send('internal server error')

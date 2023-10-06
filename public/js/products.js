@@ -56,7 +56,7 @@ async function uploadProduct() {
         body: JSON.stringify(prodToAdd)
     }
 
-    return await fetch(`http://localhost:4040/api/products/create`, options)
+    return await fetch(`/api/products/create`, options)
 
 }
 
@@ -70,7 +70,7 @@ async function deleteProduct(){
             body: JSON.stringify({prodToDel:prodToDel})
         }
 
-        return await fetch(`http://localhost:4040/api/products/delete`, options)
+        return await fetch(`/api/products/delete`, options)
       }
 
 

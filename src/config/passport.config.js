@@ -10,6 +10,8 @@ import CustomErrors from "../utils/customErrors.js";
 import EErros from "../utils/Errors.js";
 import { createUserErrorInfo , userNotFoundErrorInfo } from "../utils/infoError.js";
 import logger from "../utils/logger.js";
+
+
 const jwtStrategy = Strategy;
 const jwtExtract = ExtractJwt;
 const LocalStrategy = local.Strategy
@@ -65,7 +67,7 @@ const inicializePassport = () => {
         clientID: config.CLIENTID,
         clientSecret: config.CLIENTSECRET,
         callbackURL:
-            'http://localhost:4040/api/sessions/githubcallback'
+            '/api/sessions/githubcallback'
             },
             async (accessToken, refreshToken, profile, done) =>{
                 try{

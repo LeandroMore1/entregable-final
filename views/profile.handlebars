@@ -12,6 +12,10 @@
     <option value="user">Estándar</option>
   </select>
   <button type="button" onclick="updateUserRole('{{user._id}}')" class="btn btn-dark btn-sm">cambiar</button>
+  {{else}}
+  <a class="btn btn-dark btn-sm" href="/admin">Panel de admin</a>
 {{/if}}
 </div>
+
+
 <script src="/js/user.js"></script>

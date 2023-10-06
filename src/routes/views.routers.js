@@ -162,8 +162,10 @@ export default class viewsRouter extends MyRouter {
         this.get('/restorePassword/:tok', ["PUBLIC"], isGuest, async (req, res) => {
             const token = req.params.tok
             const tokenTime = jwt.decode(token)
+            logger.debug(JSON.stringify(tokenTime))
+            const baseUrl = req.protocol + '://' + req.get('host');
             if (Date.now() >= tokenTime.exp * 1000) {
-                res.redirect("http://localhost:4040/recoveryMail")
+                res.redirect(`${baseUrl}/recoveryMail`)
             }
             res.render('restorePassword', { token: token })
         })

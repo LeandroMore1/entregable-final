@@ -11,9 +11,9 @@
         body: JSON.stringify({cid: cid})
       }
     
-      const response = await fetch(`http://localhost:4040/api/carts/${cid}/purchase`, options)
+      const response = await fetch(`/api/carts/${cid}/purchase`, options)
       if (response.status === 200) {
-        window.location.href = 'http://localhost:4040/api/carts/purchaseGreet';
+        window.location.href = `/api/carts/purchaseGreet`;
     } else if(response.status === 400){
       const msg = document.getElementById('warningMsg')
       msg.innerHTML = 'no hay suficiente stock para el/los productos que deseas comprar!'
@@ -32,7 +32,27 @@
         body: JSON.stringify({prodId: prodId})
       }
     
-      return await fetch(`http://localhost:4040/api/carts/${endpoint}`, options)
+      const response = await fetch(`/api/carts/${endpoint}`, options)
+      if (response.status === 200){
+        Toastify({
+
+          text: "Producto agregado exitosamente!",
+          style: {
+            background: "#07bc0c",
+          },
+          duration: 3000
+          
+          }).showToast();
+      } else if (response.status === 400){
+          Toastify({
+            text: "El admin o los creadores no pueden agregar productos",
+            style: {
+              background: "#f1c40f",
+            },
+            duration: 3000
+            
+            }).showToast();
+      }
     }
 
 
@@ -52,7 +72,7 @@
       const row = document.getElementById(`${prodId}`)
       row.innerHTML = ""
       totalPrice()
-      return await fetch(`http://localhost:4040/api/carts/${endpoint}/products/${prodId}`, options)
+      return await fetch(`/api/carts/${endpoint}/products/${prodId}`, options)
     }
 
 
@@ -80,7 +100,7 @@
       message.innerHTML= `<p>El carrito esta vacio!</p>`
       let totalPriceDisplay = document.getElementById('totalPrice');
     totalPriceDisplay.textContent = ""
-      return await fetch(`http://localhost:4040/api/carts/${cartId}`, options)
+      return await fetch(`/api/carts/${cartId}`, options)
     }
 
 
@@ -108,7 +128,7 @@
           quantityRendered.innerHTML = inputVal;
           msg.innerHTML = ''
           totalPrice()
-          return await fetch(`http://localhost:4040/api/carts/${endpoint}/products/${prodId}`, options)
+          return await fetch(`/api/carts/${endpoint}/products/${prodId}`, options)
         }
 
         
