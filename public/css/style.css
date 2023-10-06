@@ -11,6 +11,19 @@
     margin-bottom: 40px;
 }
 
+.registerBtn{
+    margin-bottom: 7px;
+    margin-top: -5px;
+}
+
+.loginBtn{
+    margin-right: 10px;
+}
+
+#errorPass{
+    color: red;
+}
+
 #ticket p{
     color: black;
 }
@@ -97,6 +110,7 @@
 
 .registerText{
     color: black;
+    font-size: 18px;
     margin-top: 20px;
     margin-bottom: 15px;
 }
