@@ -6,6 +6,7 @@ import mailService from "../config/mailing.config.js";
 import config from "../env/config.js";
 import jwt from 'jsonwebtoken'
 import logger from "../utils/logger.js";
+import { userController } from "../service/user.service.js";
 
 
 // SECTION - realizar compra
@@ -141,7 +142,6 @@ export const getCart = async (req, res) => {
         const data = await cartController.getProductsInCart(user.cart)
         const cid = user.cart.toString()
         const cartData = data.products
-
         res.render('cart', { cartData, cid, user })
     } catch (err) {
         logger.warning(`error al intentar obtener el cart en ${req.url}:\n ${err}`)

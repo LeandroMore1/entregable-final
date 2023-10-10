@@ -3,7 +3,6 @@ import passport from "passport";
 import { redirectToLogin, logout, auth, updateUserRole, sendRecoveryMail, restorePassword, getUsers, deleteInactiveUsers, deleteUser, uploadFile } from "../controllers/user.controller.js";
 import MyRouter from "./router.js";
 import {  uploadGeneric } from "../middlewares/multer.middleware.js";
-import logger from "../utils/logger.js";
 
 export default class userRouter extends MyRouter {
     init() {

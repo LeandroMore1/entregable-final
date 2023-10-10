@@ -179,8 +179,9 @@ export default class viewsRouter extends MyRouter {
 
         // SECTION - obtener, crear, eliminar y actualizar productos
 
-        this.get("/realtimeproducts", ["ADMIN", "PREMIUM"], (req, res) => {
+        this.get("/realtimeproducts", ["ADMIN", "PREMIUM"], async(req, res) => {
             let user = req.user
+            user = await userController.getUserById(user._id)
             res.render('realTimeProducts', { user })
         })
 
@@ -203,6 +204,7 @@ export default class viewsRouter extends MyRouter {
             try {
                 setTimeout(async () => {
                     let user = req.user
+                    user = await userController.getUserById(user._id)
                     let users = await userController.getUsers()
                     users = users.filter(el => { return el.role !== "admin" })
                     users = new usersDTO(users)
