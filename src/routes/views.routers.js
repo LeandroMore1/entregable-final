@@ -218,13 +218,6 @@ export default class viewsRouter extends MyRouter {
             }
         })
 
-        // SECTION - checkout
-
-        this.get('/checkout', ['USER', 'PREMIUM'], async (req,res)=>{
-
-            res.render('payment', {title: 'Realizar Pago'})
-        })
-
     }
 
 
