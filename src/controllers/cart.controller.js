@@ -2,6 +2,7 @@
 import { cartController } from "../service/cart.service.js";
 import { ticketController } from "../service/ticket.service.js";
 import { productController } from "../service/product.service.js";
+import mailService from "../config/mailing.config.js";
 import config from "../env/config.js";
 import jwt from 'jsonwebtoken'
 import logger from "../utils/logger.js";
@@ -37,12 +38,15 @@ export const purchase = async (req, res) => {
         logger.debug(`length de cart: ${cart.length}`)
 
         if (cart.length !== 0) {
+
             await ticketController.createTicket({
                 code: Date.now() + Math.floor(Math.random() * 10000 + 1),
                 purchase_dateTime: new Date(),
                 amount: total,
-                purchaser: user.email
+                purchaser: user.email,
+                products: cart
             })
+
             const cartAfterBuy = productsNotBought.map(el => ({
                 product: el.product._id,
                 quantity: el.quantity
@@ -93,10 +97,27 @@ export const purchaseGreet = async (req, res) => {
         const year = date.getFullYear()
         const month = date.getMonth() +1
         const day = date.getDate()
-        logger.debug(day)
-        const localDate = `${year}/${month < 10? 0 : ""}${month}/${day < 10? 0 : ""}${day}`
-
+        const localDate = `${day < 10? 0 : ""}${day}/${month < 10? 0 : ""}${month}/${year}`
         ticket.date = localDate
+
+        const mailOptions = {
+            from: config.NODEMAILER_EMAIL,
+            to: user.email,
+            subject: 'Recibo de Compra',
+            html: `<h1>Hola ${user.name}</h1>
+            <h2>¡Gracias por tu compra! A continuacion te dejamos el recibo de la operación:</h2>
+            <strong>Nombre: </strong><p>${user.name} ${user.lastName}</p>
+            <strong>Total: </strong><p>${ticket.amount}$</p>
+            <strong>Fecha de compra: </strong><p>${ticket.date}</p>
+            <strong>Codigo de referencia: </strong><p>#${ticket.code}</p>
+            <strong>Productos:</strong>
+            <ul>
+            ${ticket.products.map(el => `<li>Producto: ${el.product.title}, Cantidad: ${el.quantity}</li>`).join('')}
+            </ul>
+            `
+        }
+        const mailer = new mailService()
+        await mailer.sendMail(mailOptions)
 
             res.render('purchaseGreet', { prodsRemaining, user ,ticket})
         }, delayTime)
@@ -108,6 +129,7 @@ export const purchaseGreet = async (req, res) => {
     }
 
 }
+
 
 
 // SECTION - Obtener y renderizar productos 
@@ -145,10 +167,7 @@ export const addProductToCart = async (req, res) => {
         if(product.owner && product.owner === user.email){
             logger.error('error, no puede agregar productos que usted haya creado')
             return res.status(400).send('owner error')
-        } else if(user.role === "admin"){
-            logger.error('error, el admin no puede agregar productos al carro')
-            return res.status(400).send('admin error')
-        }else if (find === undefined) {
+        } else if (find === undefined) {
             const productToAdd = { product: productSelected, quantity: 1 }
             cart.products.push(productToAdd)
             await cartController.updateCart(cid, cart)

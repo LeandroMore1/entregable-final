@@ -13,7 +13,16 @@ export const ticketSchema = new mongoose.Schema({
     },
     purchaser:{
         type: String
-    }
+    },
+    products:[
+        {
+        product: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'products'
+        },
+        quantity: Number
+        }
+    ]
 
 })
 

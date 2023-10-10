@@ -11,7 +11,16 @@ async function updateUserRole(userId) {
             },
             body: JSON.stringify({ role: role }),
         }
-        return await fetch(`/api/users/premium/${userId}`, options)
+        const response = await fetch(`/api/users/premium/${userId}`, options)
+        if (response.status === 200){
+            Toastify({
+                text: "Rol Cambiado",
+                className: "info",
+                style: {
+                    background: "#3498db",
+                }
+            }).showToast();
+        }
 
 }
 

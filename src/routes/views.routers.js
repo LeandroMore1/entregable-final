@@ -1,6 +1,5 @@
 
 import { products } from "../controllers/product.controller.js";
-// import { userController, productController } from "../repository/index.js";
 import { userController } from "../service/user.service.js";
 import { productController } from "../service/product.service.js";
 import config from "../env/config.js";
@@ -160,14 +159,21 @@ export default class viewsRouter extends MyRouter {
         // SECTION - vista restablecer contraseña
 
         this.get('/restorePassword/:tok', ["PUBLIC"], isGuest, async (req, res) => {
-            const token = req.params.tok
-            const tokenTime = jwt.decode(token)
-            logger.debug(JSON.stringify(tokenTime))
-            const baseUrl = req.protocol + '://' + req.get('host');
-            if (Date.now() >= tokenTime.exp * 1000) {
-                res.redirect(`${baseUrl}/recoveryMail`)
+            try{
+                const token = req.params.tok
+                const tokenTime = jwt.decode(token)
+    
+                logger.debug(JSON.stringify(tokenTime))
+                
+                const baseUrl = req.protocol + '://' + req.get('host');
+    
+                if (Date.now() >= tokenTime.exp * 1000) {
+                    res.redirect(`${baseUrl}/recoveryMail`)
+                }
+                res.render('restorePassword', { token: token })
+            } catch (err){
+                logger.error(err)
             }
-            res.render('restorePassword', { token: token })
         })
 
 
@@ -210,6 +216,12 @@ export default class viewsRouter extends MyRouter {
             }
         })
 
+        // SECTION - checkout
+
+        this.get('/checkout', ['USER', 'PREMIUM'], async (req,res)=>{
+
+            res.render('payment', {title: 'Realizar Pago'})
+        })
 
     }
 

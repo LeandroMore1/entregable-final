@@ -23,7 +23,7 @@
 
 
   async function addProduct(endpoint,prodId) {
-     
+
       const options = {
         method: 'PUT',
         headers: {
@@ -45,14 +45,23 @@
           }).showToast();
       } else if (response.status === 400){
           Toastify({
-            text: "El admin o los creadores no pueden agregar productos",
+            text: "No puedes agregar un producto que creaste",
             style: {
               background: "#f1c40f",
             },
             duration: 3000
             
             }).showToast();
-      }
+      }else if (response.status === 403){
+        Toastify({
+          text: "El admin no puede agregar productos",
+          style: {
+            background: "#f1c40f",
+          },
+          duration: 3000
+          
+          }).showToast();
+    }
     }
 
 

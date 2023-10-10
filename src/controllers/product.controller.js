@@ -49,7 +49,7 @@ export const createProduct = async (req, res) => {
             await productController.addProduct(prodToAdd)
         }
         
-        res.status(200).send({payload: prodToAdd})
+        return res.status(200)
     } catch (err) {
         logger.error(`error al intentar crear el producto en endpoint ${req.url}:\n${err}`)
         return res.status(500).send(err)
@@ -66,12 +66,12 @@ export const deleteProduct = async (req,res)=> {
         const product = await productController.findProductById(prodToDel)
         let prodOwner
         product.owner? prodOwner = await userController.getUserByEmail(product.owner) : prodOwner
-        req.logger.debug(user.user)
         if(!product){
             logger.error('el producto buscado no existe o ha sido eliminado')
             return res.status(404).send('product not found')
         }else if(  user.user.email !== product.owner && user.user.role !== "admin" ){
-            return res.status(400).send('solo el admin puede borrar productos que no sean suyos')
+            logger.error('solo el admin puede borrar productos que no sean suyos')
+            return res.status(400).send('only admin allowed to erase other owner product')
         } else if(product.owner !== "admin"){
             await productController.deleteProduct(prodToDel)
             const mailOptions = {

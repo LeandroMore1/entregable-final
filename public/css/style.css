@@ -16,6 +16,8 @@
     margin-top: -5px;
 }
 
+
+
 .loginBtn{
     margin-right: 10px;
 }
@@ -54,6 +56,17 @@
     font-size: 15px;
     margin-bottom: 30px;
     margin-top: 25px;
+}
+.mailMsg{
+    margin-top: -20px;
+}
+.uploaderDiv{
+    width: 300px;
+    height: 200px;
+    margin-top: -120px;
+}
+.noProdsLeft{
+    margin-top: -10px;
 }
 
 #greetTitles{

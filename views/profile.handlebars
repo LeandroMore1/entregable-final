@@ -1,21 +1,49 @@
-<div class="d-flex flex-column align-items-center">
-<h1 class="profileTitle">Tu perfil:</h1>
+<div class="d-flex justify-content-around align-items-center">
+  <div class="d-flex flex-column align-items-center">
 
-<img src='{{user.img}}'alt='logo' class='img-fluid profileImg' style='border-radius: 50%; max-height: 120px; width: 120px'>
-<p class="profileText"> <b>nombre:</b> {{user.name}}</p>
-<p class="profileText"> <b>apellido:</b> {{user.lastName}}</p>
-<p class="profileText"> <b>e-mail:</b> {{user.email}}</p>
-{{#if user.role}}
-      <label >Cambiar rol:</label>
-  <select id="role">
-    <option value="premium">Premium</option>
-    <option value="user">Estándar</option>
-  </select>
-  <button type="button" onclick="updateUserRole('{{user._id}}')" class="btn btn-dark btn-sm">cambiar</button>
-  {{else}}
-  <a class="btn btn-dark btn-sm" href="/admin">Panel de admin</a>
-{{/if}}
+    <h1 class="profileTitle">Tu perfil:</h1>
+
+    <img src='{{user.img}}' alt='logo' class='img-fluid profileImg'
+      style='border-radius: 50%; max-height: 120px; width: 120px'>
+    <p class="profileText"> <b>nombre:</b> {{user.name}}</p>
+    <p class="profileText"> <b>apellido:</b> {{user.lastName}}</p>
+    <p class="profileText"> <b>e-mail:</b> {{user.email}}</p>
+    {{#if user.role}}
+    <label>Cambiar rol:</label>
+    <select id="role">
+      <option value="premium">Premium</option>
+      <option value="user">Estándar</option>
+    </select>
+    <button type="button" onclick="updateUserRole('{{user._id}}')" class="btn btn-dark btn-sm">cambiar</button>
+    {{else}}
+    <a class="btn btn-dark btn-sm" href="/admin">Panel de admin</a>
+    {{/if}}
+
+  </div>
+
+  <div class="uploaderDiv">
+  <form action="/api/users/{{user._id}}/documents" method="post" enctype="multipart/form-data">
+    <label>Subir imagen de perfil:</label>
+    <input class="btn btn-dark btn-sm" type="file" name="profileImage">
+    
+    <label>Subir imagen de producto:</label>
+    <input class="btn btn-dark btn-sm" type="file" name="productImage">
+    
+    <label>Subir documento:</label>
+    <input class="btn btn-dark btn-sm" type="file" name="documentFile">
+    
+    <label>Subir estado de cuenta:</label>
+    <input class="btn btn-dark btn-sm" type="file" name="accStatusFile">
+
+    <label>Subir comprobante domicilio:</label>
+    <input class="btn btn-dark btn-sm" type="file" name="residenceFile">
+
+
+    <button class="btn btn-dark btn-sm" type="submit">Subir archivos</button>
+  </form>
+  </div>
 </div>
+
 
 
 <script src="/js/user.js"></script>

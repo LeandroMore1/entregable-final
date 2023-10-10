@@ -1,5 +1,4 @@
 import MyRouter from "./router.js"
-// import { productController } from "../repository/index.js"
 import { productController } from "../service/product.service.js"
 import { testFunction } from "../utils/generateProducts.js"
 

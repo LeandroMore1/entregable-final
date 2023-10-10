@@ -56,22 +56,54 @@ async function uploadProduct() {
         body: JSON.stringify(prodToAdd)
     }
 
-    return await fetch(`/api/products/create`, options)
+    const response = await fetch(`/api/products/create`, options)
+    if (response.status === 200) {
+        Toastify({
+            text: "Producto creado",
+            className: "info",
+            style: {
+                background: "#3498db",
+            }
+        }).showToast();
+    } else {
+        Toastify({
+            text: "Error al intentar crear el producto",
+            style: {
+                background: "#f1c40f",
+            }
+        }).showToast();
+    }
 
 }
 
-async function deleteProduct(){
-        const prodToDel = document.getElementById('productToDeleteId').value
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({prodToDel:prodToDel})
-        }
+async function deleteProduct() {
+    const prodToDel = document.getElementById('productToDeleteId').value
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ prodToDel: prodToDel })
+    }
 
-        return await fetch(`/api/products/delete`, options)
-      }
+    const response = await fetch(`/api/products/delete`, options)
+    if (response.status === 200) {
+        Toastify({
+            text: "Producto eliminado",
+            className: "info",
+            style: {
+                background: "#3498db",
+            }
+        }).showToast();
+    } else {
+        Toastify({
+            text: "Error al intentar borrar el producto",
+            style: {
+                background: "#f1c40f",
+            }
+        }).showToast();
+    }
+}
 
 
 socket.on('prodsList', async (data) => {

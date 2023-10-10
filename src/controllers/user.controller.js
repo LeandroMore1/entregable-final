@@ -8,13 +8,14 @@ import config from "../env/config.js";
 import logger from '../utils/logger.js'
 import userDTO from "../dto/user.dto.js";
 import usersDTO from "../dto/users.dto.js";
+import { uploadGeneric } from "../middlewares/multer.middleware.js";
 
 // SECTION - redirigir al login
 
 export const redirectToLogin = async (req, res) => {
-    try{
+    try {
         res.redirect('/login')
-    }catch(err){
+    } catch (err) {
         logger.error(`error al intentar redireccionar al usuario en: ${req.url}:\n${err}`)
         return res.status(500).send('internal server error')
     }
@@ -78,21 +79,21 @@ export const updateUserRole = async (req, res) => {
         const token = req.cookies.token
         const id = req.params.uid
         let user
-        if(token){
+        if (token) {
             user = await userController.getUserById(id)
         }
         const role = req.body.role
-        if (user.role === "admin"){
+        if (user.role === "admin") {
             logger.error('los admins no pueden cambiar su rol!')
             return res.status(400).send('Admin is not allowed to changed roles')
-        }else if (role === "premium") {
+        } else if (role === "premium") {
             user.role = "premium"
             await userController.updateUser(user._id, user)
-        return res.status(200).send('role updated successfully')
+            return res.status(200).send('role updated successfully')
         } else if (role === "user") {
             user.role = "user"
             await userController.updateUser(user._id, user)
-        return res.status(200).send('role updated successfully')
+            return res.status(200).send('role updated successfully')
         }
     } catch (err) {
         logger.error(`error al intentar cambiar el rol del usuario en: ${req.url}:\n${err}`)
@@ -113,8 +114,8 @@ export const sendRecoveryMail = async (req, res) => {
             return res.status(400).send('error, el mail ingresado no pertenece a ningun usuario')
         }
 
-        const timer =  3600000
-       
+        const timer = 3600000
+
 
         const recovery = setToken(user._id)
         res.cookie('restoreToken', recovery, {
@@ -129,7 +130,7 @@ export const sendRecoveryMail = async (req, res) => {
             subject: 'Recuperación de contraseña',
             html: `<h1>Hola ${user.name}</h1>
             <p>para restablecer tu contraseña deberas ingresar <a href='${baseUrl}/restorePassword/${recovery}'>aqui</a></p>`
-            
+
         }
         const mailer = new mailService()
         await mailer.sendMail(mailOptions)
@@ -168,14 +169,14 @@ export const restorePassword = async (req, res) => {
 
 // SECTION obtener usuarios
 
-export const getUsers = async (req,res) =>{
-    try{
+export const getUsers = async (req, res) => {
+    try {
         let users = await userController.getUsers()
         let user = req.user
         users = new usersDTO(users)
         logger.debug(users.users)
-        res.render('users', {users: users.users, user})
-    } catch(err){
+        res.render('users', { users: users.users, user })
+    } catch (err) {
         logger.error(`error al intentar obtener los usuarios en: ${req.url}:\n${err}`)
         return res.status(500).send('internal server error')
     }
@@ -184,36 +185,36 @@ export const getUsers = async (req,res) =>{
 
 // SECTION - eliminar usuarios inactivos
 
-export const deleteInactiveUsers = async (req,res) => {
-    try{
-        const expiringTime = 48*60*60*1000
+export const deleteInactiveUsers = async (req, res) => {
+    try {
+        const expiringTime = 48 * 60 * 60 * 1000
         let users = await userController.getUsers()
-        users = users.filter(el=>{
+        users = users.filter(el => {
             let lastConnection = new Date(el.last_connection).getTime()
             return Date.now() - lastConnection > expiringTime && el.role !== "admin"
         })
-        if(users.length === 0){
+        if (users.length === 0) {
             logger.info('no hay usuarios inactivos por el momento!')
             return res.status(400).send('no inactive users found')
-        } else{
+        } else {
             users.forEach(async element => {
-                    const mailOptions = {
-                        from: config.NODEMAILER_EMAIL,
-                        to: element.email,
-                        subject: 'Cuenta eliminada',
-                        html: `<h1>Hola ${element.name}</h1>
+                const mailOptions = {
+                    from: config.NODEMAILER_EMAIL,
+                    to: element.email,
+                    subject: 'Cuenta eliminada',
+                    html: `<h1>Hola ${element.name}</h1>
                         <p>lamentamos informarte que tu cuenta ha sido eliminada debido a inactividad</p>`
-                    }
-                    const mailer = new mailService()
-                    await mailer.sendMail(mailOptions)
-                    logger.debug('email sent')
-                    await cartController.deleteCart(element.cart)
-                    await userController.deleteUserById(element._id)
+                }
+                const mailer = new mailService()
+                await mailer.sendMail(mailOptions)
+                logger.debug('email sent')
+                await cartController.deleteCart(element.cart)
+                await userController.deleteUserById(element._id)
             })
         }
         logger.debug(JSON.stringify(users))
         res.status(200).send('success')
-    } catch(err){
+    } catch (err) {
         logger.error(`error al intentar eliminar los usuarios expirados en: ${req.url}:\n${err}`)
         return res.status(500).send('internal server error')
     }
@@ -221,21 +222,56 @@ export const deleteInactiveUsers = async (req,res) => {
 
 // SECTION - eliminar usuario
 
-export const deleteUser = async (req,res)=>{
-try{
-    const userId = req.params.uid
-    const user = await userController.getUserById(userId)
-    await cartController.deleteCart(user.cart)
-    await userController.deleteUserById(userId)
-    const deletedUser = await userController.getUserById(userId)
-    if(!deletedUser){
-        logger.info('usuario eliminado satisfactoriamente')
-        return res.status(200).send('user deleted')
-    } else {
-        throw new Error('error')
+export const deleteUser = async (req, res) => {
+    try {
+        const userId = req.params.uid
+        const user = await userController.getUserById(userId)
+        await cartController.deleteCart(user.cart)
+        await userController.deleteUserById(userId)
+        const deletedUser = await userController.getUserById(userId)
+        if (!deletedUser) {
+            logger.info('usuario eliminado satisfactoriamente')
+            return res.status(200).send('user deleted')
+        } else {
+            throw new Error('error')
+        }
+    } catch (err) {
+        logger.error(`error al intentar eliminar el usuario en: ${req.url}:\n${err}`)
+        return res.status(500).send('internal server error')
     }
-} catch(err){
-    logger.error(`error al intentar eliminar el usuario en: ${req.url}:\n${err}`)
-    return res.status(500).send('internal server error')
+
 }
+
+export const uploadFile = async (req, res) => {
+    try {
+        setTimeout(async () => {
+            const user = req.user
+            const findUser = await userController.getUserById(user._id)
+
+            const files = req.files
+            const fileName = files.profileImage[0]
+
+            const documents = []
+            for (const file in files) {
+                if (file !== 'profileImage' && file !== 'productImage') {
+                    const filesToUpload = files[file];
+                    filesToUpload.forEach(file => {
+                        documents.push({
+                            file: file.fieldname,
+                            reference: file.path
+                        });
+                    });
+                }
+            }
+            const pathImg = fileName.destination
+            findUser.img = `${pathImg.replace('public/', '')}/${fileName.filename}`
+            await userController.updateUser(user._id, findUser)
+            res.redirect("/profile")
+        }, 2000)
+
+
+    } catch (err) {
+        logger.error(err)
+    }
 }
+

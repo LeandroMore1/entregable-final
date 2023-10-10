@@ -11,7 +11,6 @@ let qty = config.WORKER_QTY
 
 if (cluster.isPrimary) {
     logger.debug(`el cluster primario ${process.pid} se inicializo`);
-    logger.debug(qty)
     for (let i = 0; i < qty; i++) { 
         cluster.fork();
     }

@@ -9,7 +9,7 @@ class ticketsDAO{
     }
 
     async getBy(id){
-        return await this.model.findOne(id).sort({purchase_dateTime: -1}).lean()
+        return await this.model.findOne(id).sort({purchase_dateTime: -1}).populate('products.product').lean()
     }
 
 }
