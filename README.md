@@ -1,10 +1,10 @@
 # Proyecto final E-Commerce BackEnd
 
-### acceso a la app <a href="http://35.171.60.146/products">acá</a>
+Acceso a la app <a href="http://35.171.60.146/products">acá</a>
 
-### El proyecto usa yarn por lo que se debe ejecutar con el comando yarn run start
+El proyecto usa yarn por lo que se debe ejecutar con el comando yarn run start
 
-### las variables de entorno estan disponibles a completar con su descripcion en .env.sample
+Las variables de entorno estan disponibles a completar con su descripcion en .env.sample
 
 ## endpoints con vistas: 
 
