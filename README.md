@@ -1,6 +1,6 @@
 # Proyecto final E-Commerce BackEnd
 
-## acceso a la app desde railway: https://entregable-production.up.railway.app/login
+## acceso a la app <a href="http://35.171.60.146/products">acá</a>
 
 ### El proyecto usa yarn por lo que se debe ejecutar con el comando yarn run start
 
