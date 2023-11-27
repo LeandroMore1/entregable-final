@@ -20,3 +20,22 @@
 * /api/users: vista de los usuarios
 * /api/carts/purchaseGreet: vista del recibo de compra
 * /api/carts/:cid: vista del carrito
+
+## Herramientas usadas:
+
+* JWT
+* Passport
+* Swagger
+* Chai.js
+* Mocha
+* Winston
+* Bcrypt
+* Mongoose
+* Mongodb
+* Nodemailer
+* Multer
+* Jsonwebtoken
+* Express-Handlebars
+* Cookie-parser
+* Dotenv
+* Socket.io
