@@ -1,12 +1,12 @@
 # Proyecto final E-Commerce BackEnd
 
-## acceso a la app desde railway: https://entregable-production.up.railway.app/login
+Acceso a la app <a href="http://35.171.60.146/products">acá</a>
 
-### El proyecto usa yarn por lo que se debe ejecutar con el comando yarn run start
+El proyecto usa yarn por lo que se debe ejecutar con el comando yarn run start
 
-### las variables de entorno estan disponibles a completar con su descripcion en .env.sample
+Las variables de entorno estan disponibles a completar con su descripcion en .env.sample
 
-### endpoints con vistas: 
+## endpoints con vistas: 
 
 * /login: dirige a la vista para logearse
 * /register: vista para registrarse
@@ -20,3 +20,22 @@
 * /api/users: vista de los usuarios
 * /api/carts/purchaseGreet: vista del recibo de compra
 * /api/carts/:cid: vista del carrito
+
+## Herramientas usadas:
+
+* JWT
+* Passport
+* Swagger
+* Chai.js
+* Mocha
+* Winston
+* Bcrypt
+* Mongoose
+* Mongodb
+* Nodemailer
+* Multer
+* Jsonwebtoken
+* Express-Handlebars
+* Cookie-parser
+* Dotenv
+* Socket.io
