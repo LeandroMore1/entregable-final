@@ -246,7 +246,7 @@ export const uploadFile = async (req, res) => {
         setTimeout(async () => {
             const user = req.user
             const findUser = await userController.getUserById(user._id)
-            const baseUrl = req.protocol + '://' + req.get('host')+'/'
+            const baseUrl = '/'
             const files = req.files
             const fileName = files.profileImage[0]
 
@@ -263,7 +263,7 @@ export const uploadFile = async (req, res) => {
                 }
             }
             const pathImg = fileName.destination
-            findUser.img = `${baseUrl}${pathImg.replace('public/', '')}/${fileName.filename}`
+            findUser.img = `${pathImg.replace('public/', '')}/${fileName.filename}`
             await userController.updateUser(user._id, findUser)
             res.redirect("/profile")
         }, 2000)
